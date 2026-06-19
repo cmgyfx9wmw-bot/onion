@@ -9,21 +9,20 @@
 </script>
 
 <main class="wrapper profile-page">
-    
     <aside class="side-area branding">
+        <a href="/" class="back-to-config">← zurück zum outfit-konfigurator</a>
         <div class="brand-content">
-            <a href="/" class="back-to-config">← Zurück zum Outfit-Konfigurator</a>
             <h1 class="onion-title">on¿on</h1>
-            <div class="user-greeting">
+            <div class="onion-subtitle">
                 <p>Hey <strong>{{ Auth::user()->name }}</strong>,<br>
                 schön dass du on¿on nutzt!</p>
-            </div>
+
         </div>
         
         <div class="profile-actions d-flex flex-column gap-3 mt-4 w-100 align-items-end">
         
             <button type="button" class="btn-pill-white" data-bs-toggle="modal" data-bs-target="#uploadModal">
-                Neues Item hinzufügen
+                Item hinzufügen
             </button>
 
             <button type="button" class="btn-pill-white" data-bs-toggle="modal" data-bs-target="#addTagModal">
@@ -46,7 +45,7 @@
         </div>
     </aside>
 
-    <section class="main-configurator" style="justify-content: flex-start; padding-top: 40px; overflow-y: auto;"> 
+    <section class="main-configurator" > 
         <h2 class="closet-header mb-5">Dein Kleiderschrank</h2>
 
         <div class="closet-list w-100">
@@ -56,23 +55,23 @@
                 @endphp
 
                 @if($categoryItems->count() > 0)
-                    <div class="category-row mb-5 w-100">
-                        <h3 class="category-title" style="font-size: 1.2rem; color: #555; margin-bottom: 15px; font-weight: 400;">
+                    <div class="category-row mb-4 w-100">
+                        <h3 class="category-title">
                             {{ $category['name'] ?? $category->name }}
                         </h3>
-                        
-                        <div class="horizontal-scroll-container d-flex gap-3 pb-2" style="overflow-x: auto; flex-wrap: nowrap; scrollbar-width: thin;">
-                            @foreach($categoryItems as $item)
-                                @php
-                                    $path = str_replace('/storage/', '', $item->filepath ?? $item['filepath'] ?? '');
-                                @endphp
-                                
-                                <div class="closet-item flex-shrink-0" onclick="window.openEditItemModal({{ json_encode($item) }})">
-                                    <img src="{{ asset($path) }}" 
-                                        alt="Kleidungsstück" 
-                                        onerror="this.onerror=null; this.src='{{ asset('images/placeholder.png') }}';">
-                                </div>
-                            @endforeach
+                        <div class="closet-capsule">
+                            <div class="closet-capsule-scroll">
+                                @foreach($categoryItems as $item)
+                                    @php
+                                        $path = str_replace('/storage/', '', $item->filepath ?? $item['filepath'] ?? '');
+                                    @endphp
+                                    <div class="closet-item" onclick="window.openEditItemModal({{ json_encode($item) }})">
+                                        <img src="{{ asset($path) }}"
+                                            alt="Kleidungsstück"
+                                            onerror="this.onerror=null; this.src='{{ asset('images/placeholder.png') }}';">
+                                    </div>
+                                @endforeach
+                            </div>
                         </div>
                     </div>
                 @endif
