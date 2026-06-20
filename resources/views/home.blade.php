@@ -8,14 +8,16 @@
             <h1 class="onion-title">on¿on</h1>
             <p class="onion-subtitle">Was ziehst du<br>heute an?</p>
 
-            @guest
-            <div class="auth-buttons mt-4">
-                <a href="{{ route('login') }}" class="btn btn-primary me-2">Anmelden</a>
-                <a href="{{ route('register') }}" class="btn btn-primary me-2">Registrieren</a>
-            </div>
-            @endguest
-            <a href="{{ url('/profile') }}" class="btn-primary large pc-only mt-3">ZUM PROFIL</a>
+                @guest
+                <div class="d-flex flex-column gap-2 mt-3">
+                    <a href="{{ route('login') }}" class="btn-pill-white">Anmelden</a>
+                    <a href="{{ route('register') }}" class="btn-pill-white">Registrieren</a>
+                    @endguest
+                    <a href="{{ url('/profile') }}" class="btn-pill-white">ZUM PROFIL</a>    
+                </div>
+  
         </div>
+        
     </aside>
 
     <section class="main-configurator">
@@ -82,7 +84,9 @@
                 @endif
             @endforeach
         </form>
-        <button type="submit" form="outfit-form" class="btn-primary large mobile-only">ANZIEHEN</button>
+        <div style="width: 600px; display: flex; justify-content: center;">
+            <button type="submit" form="outfit-form" class="btn-primary large mt-3">ANZIEHEN</button>
+        </div>
     </section>
 
     <aside class="side-area info">
