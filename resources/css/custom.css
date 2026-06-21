@@ -27,10 +27,6 @@ body {
     display: none;
 }
 
-.d-none {
-    display: none !important;
-}
-
 /* GLOBALE KOMPONENTEN (Buttons & Typo)
 */
 .onion-title { 
@@ -469,6 +465,11 @@ body {
     line-height: 1.2;
 }
 
+.badge.bg-primary {
+	background-color:#D2A679 !important; 
+	color: #333 !important; 
+}
+
 /* Zwiebel-Schichten Vorschau Profil */
 .outfit-preview {
     display: flex;
@@ -651,3 +652,6 @@ footer span.text-secondary {
     width: auto !important;
 }
 
+.d-none {
+	display: none !important;
+}

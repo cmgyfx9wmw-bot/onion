@@ -26,7 +26,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Abbrechen</button>
-        <button type="button" class="btn btn-success" id="saveTagButton">Tag speichern</button>
+        <button type="button" class="btn btn-primary" id="saveTagButton">Tag speichern</button>
       </div>
     </div>
   </div>
