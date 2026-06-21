@@ -13,7 +13,7 @@
                     <a href="{{ route('login') }}" class="btn-pill-white">Anmelden</a>
                     <a href="{{ route('register') }}" class="btn-pill-white">Registrieren</a>
                     @endguest
-                    <a href="{{ url('/profile') }}" class="btn-pill-white">ZUM PROFIL</a>    
+                    <a href="{{ url('/profile') }}" class="btn-pill-white">Zum Profil</a>    
                 </div>
   
         </div>
